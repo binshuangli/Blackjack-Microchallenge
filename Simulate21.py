@@ -11,24 +11,20 @@ class Simulate21:
         current = random.choice(self.cards)
         self.cards.remove(current)
         current_sum = current
-        while current_sum<=21:
+        while current_sum<17:
             current = random.choice(self.cards)
-            current_sum+=current
             self.cards.remove(current)
-            if current_sum>=17:
-                break
+            current_sum+=current
         return current_sum
         
     def dealer_result_observed(self,observed):
         current = observed
         self.cards.remove(current)
         current_sum = current
-        while current_sum<=21:
+        while current_sum<17:
             current = random.choice(self.cards)
-            current_sum+=current
             self.cards.remove(current)
-            if current_sum>=17:
-                break
+            current_sum+=current
         return current_sum
     
     def player_cards(self):
