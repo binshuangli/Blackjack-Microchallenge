@@ -51,3 +51,15 @@ def simulation(iterations,observed = 0):
         else:
             lost_count+=1
     return np.mean(legal_results),lost_count, lost_count/iterations, (1-lost_count/iterations)*np.mean(legal_results)
+
+def nohit_sim(iterations):
+    player_wins = 0
+    for i in range(iterations):
+        sim = Simulate21()
+        player_result = sim.player_cards()[2]
+        deal_result = sim.dealer_result()
+        if deal_result>21:
+            player_wins+=1
+        elif player_result>deal_result :
+            player_wins+=1
+    return player_wins, iterations,  player_wins/iterations
